@@ -1,0 +1,16 @@
+create table visitors (
+id serial primary key,
+name varchar not null UNIQUE, 
+birthday date not null,
+gender varchar not null
+);
+ 
+create table visit(
+id serial primary key,
+visitor_id integer references visitors (id),
+visit_time timestamp not null,
+trainer_id integer references trainer (id)
+);
+
+insert into visitors(name,birthday,gender) values ('Kukushki','1998-03-09','F');
+insert into visit (visitor_id,visit_time,trainer_id)values(5,'2019-12-23 17:38:01',4);
